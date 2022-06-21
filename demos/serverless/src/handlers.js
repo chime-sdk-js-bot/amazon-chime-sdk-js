@@ -52,7 +52,7 @@ exports.join = async (event, context) => {
   }
   
   console.info("Query Tags"+query.tags);
-  let userTags = query.tags.split(",").map((tagString) => {
+  let userTags = (query.tags == "" || query.tags == null) ? null : query.tags.split(",").map((tagString) => {
     return {
       "Key": tagString.split(":")[0],
       "Value": tagString.split(":")[1]
